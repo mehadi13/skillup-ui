@@ -1,5 +1,5 @@
-import { CircleUser, Menu, Package2, Search } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { CircleUser, Menu, Package2, Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,55 +7,64 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 
-import { Link } from "react-router-dom"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Link, useNavigate } from "react-router-dom";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import logo from "../../assets/logo.png";
+import { useContext, useState } from "react";
+import { AuthContext } from "@/provider/AuthProvider";
 
 function Header() {
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const handleLinkClick = () => {
+    setIsSheetOpen(false);
+  };
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const handleDropdownClick = () => {
+    setIsDropdownOpen(false);
+  };
+
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
-    <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
+    <div className="w-full border-b bg-background">
+      {" "}
+      {/* Full-width wrapper */}
+      <header className="mx-auto max-w-screen-xl sticky top-0 flex h-16 items-center gap-4 px-4 sm:px-6 lg:px-8">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
-          <Link
-            href="#"
-            className="flex items-center gap-2 text-lg font-semibold md:text-base"
-          >
-            <Package2 className="h-6 w-6" />
-            <span className="sr-only">Acme Inc</span>
+          <Link href="#" className="md:flex md:items-center md:gap-1">
+            <img className="w-20" src={logo} alt="logo" />
           </Link>
-          <Link
-            href="#"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Dashboard
-          </Link>
-          <Link
-            href="#"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Orders
-          </Link>
-          <Link
-            href="#"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Products
-          </Link>
-          <Link
-            href="#"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Customers
-          </Link>
-          <Link
-            href="#"
-            className="text-foreground transition-colors hover:text-foreground"
-          >
-            Settings
-          </Link>
+          <div className="grid grid-cols-2 gap-3">
+            <Link
+              to="/"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Home
+            </Link>
+            <Link
+              to="/products"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Courses
+            </Link>
+          </div>
         </nav>
-        <Sheet>
+        <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
           <SheetTrigger asChild>
             <Button
               variant="outline"
@@ -63,44 +72,23 @@ function Header() {
               className="shrink-0 md:hidden"
             >
               <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="left">
             <nav className="grid gap-6 text-lg font-medium">
               <Link
-                href="#"
-                className="flex items-center gap-2 text-lg font-semibold"
+                to="/"
+                className="text-muted-foreground hover:text-foreground"
+                onClick={handleLinkClick}
               >
-                <Package2 className="h-6 w-6" />
-                <span className="sr-only">Acme Inc</span>
+                Home
               </Link>
               <Link
-                href="#"
+                to="/products"
                 className="text-muted-foreground hover:text-foreground"
+                onClick={handleLinkClick}
               >
-                Dashboard
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                Orders
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                Products
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                Customers
-              </Link>
-              <Link href="#" className="hover:text-foreground">
-                Settings
+                Courses
               </Link>
             </nav>
           </SheetContent>
@@ -111,30 +99,41 @@ function Header() {
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="Search products..."
+                placeholder="Search Courses..."
                 className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
               />
             </div>
           </form>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary" size="icon" className="rounded-full">
-                <CircleUser className="h-5 w-5" />
-                <span className="sr-only">Toggle user menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem><Link to="/signin">Logout</Link></DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {user ? (
+            <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  className="rounded-full"
+                >
+                  <CircleUser className="h-5 w-5" />
+                  <span className="sr-only">Toggle user menu</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem><Link to="/profile" onClick={handleDropdownClick}>Profile</Link></DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={handleSignOut}>Logout</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <div className="grid grid-cols-2 gap-4">
+              <Link to="/signup"><Button>Sign Up</Button></Link>
+              <Link to="/signin"><Button>Sign In</Button></Link>
+            </div>
+          )}
         </div>
       </header>
-  )
+    </div>
+  );
 }
 
-export default Header
+export default Header;

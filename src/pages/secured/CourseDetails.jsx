@@ -3,7 +3,7 @@ import { AuthContext } from "@/provider/AuthProvider";
 import { useContext } from "react";
 
 
-const PrivatePage = () => {
+const CourseDetails = () => {
 
     const { logOut } = useContext(AuthContext);
     return <>
@@ -12,4 +12,4 @@ const PrivatePage = () => {
     </>
 }
 
-export default PrivatePage;
+export default CourseDetails;

@@ -12,12 +12,10 @@ import { toast } from "@/hooks/use-toast"
 import { AuthContext } from "@/provider/AuthProvider"
 import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
-export const description =
-  "A sign up form with first name, last name, email and password inside a card. There's an option to sign up with GitHub and a link to login if you already have an account"
-export function SignUp() {
+
+const SignUp = () => {
   // State to store email and password
   const [email, setEmail] = useState("");
-  
   const [password, setPassword] = useState("");
 
   const { createUser } = useContext(AuthContext);
@@ -42,7 +40,7 @@ export function SignUp() {
   }
 
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto max-w-sm my-24">
       <CardHeader>
         <CardTitle className="text-xl">Sign Up</CardTitle>
         <CardDescription>
@@ -99,3 +97,5 @@ export function SignUp() {
     </Card>
   )
 }
+
+export default SignUp

@@ -20,16 +20,29 @@ const AuthProvider = ({ children }) => {
   const createUser = async (email, password) => {
     setLoading(true);
     try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        return userCredential; // Return user credential or any other data you need
-      } catch (error) {
-        throw new Error(error.message); // Properly throw an error
-      }
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      return userCredential; // Return user credential or any other data you need
+    } catch (error) {
+      throw new Error(error.message); // Properly throw an error
+    }
   };
 
-  const signIn = (email, password) => {
+  const signIn = async (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
+    try {
+      const signedUser = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      return signedUser;
+    } catch (error) {
+      throw new Error(error.message);
+    }
   };
 
   const googleSignIn = (provider) => {
