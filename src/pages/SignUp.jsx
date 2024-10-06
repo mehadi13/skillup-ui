@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { toast } from "@/hooks/use-toast"
 import { AuthContext } from "@/provider/AuthProvider"
 import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
@@ -20,16 +21,24 @@ export function SignUp() {
   const [password, setPassword] = useState("");
 
   const { createUser } = useContext(AuthContext);
-  const handleSignUpSubmit = (e) => {
+  const handleSignUpSubmit = async (e) => {
     e.preventDefault();
-    console.log('Clicked')
-    console.log("Email:", email);
-    console.log("Password:", password);
-    createUser(email, password).then(res => {
-      console.log(res.user);
-    }).catch(err => {
+    try {
+      const res = await createUser(email, password);
+      console.log("User signed up:", res.user);
+      toast({
+        variant: "success",
+        title: "Signup successful!",
+        description: "You have successfully created an account.",
+      });
+    } catch (err) {
       console.error(err);
-    })
+      toast({
+        variant: "destructive",
+        title: "Signup error",
+        description: err.message || "An error occurred during signup.",
+      });
+    }
   }
 
   return (
