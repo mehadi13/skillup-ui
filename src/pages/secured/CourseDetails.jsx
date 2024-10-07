@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { API_URL } from "@/Constant";
 import { AuthContext } from "@/provider/AuthProvider";
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
@@ -74,7 +75,7 @@ const CourseDetails = () => {
 }
 
 export const courseDetailsLoader = async ({params}) => {
-    const response = await fetch(`http://localhost:5000/courses/${params.id}`);
+    const response = await fetch(`${API_URL}/courses/${params.id}`);
 
     if (!response.ok) {
         throw Error("Could not fetch courses.")

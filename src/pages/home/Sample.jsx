@@ -2,6 +2,7 @@ import {
   Card,
   CardContent
 } from "@/components/ui/card"
+import { API_URL } from "@/Constant";
 import { useLoaderData } from "react-router-dom";
 
 
@@ -37,7 +38,7 @@ const Sample = () => {
 }
 
 export const imageLoader = async () => {
-    const response = await fetch('http://localhost:5000/images');
+    const response = await fetch(`${API_URL}/images`);
 
     if (!response.ok) {
         throw Error("Could not fetch course images.")

@@ -41,10 +41,8 @@ function Header() {
   };
 
   return (
-    <div className="w-full border-b bg-background">
-      {" "}
-      {/* Full-width wrapper */}
-      <header className="mx-auto max-w-screen-xl sticky top-0 flex h-16 items-center gap-4 px-4 sm:px-6 lg:px-8">
+      <header className=" border-b bg-background  sticky top-0">
+        <div className="mx-auto max-w-screen-xl flex h-16 items-center gap-4 px-4 sm:px-6 lg:px-8">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <Link href="#" className="md:flex md:items-center md:gap-1">
             <img className="w-20" src={logo} alt="logo" />
@@ -122,8 +120,8 @@ function Header() {
             </div>
           )}
         </div>
+        </div>
       </header>
-    </div>
   );
 }
 
