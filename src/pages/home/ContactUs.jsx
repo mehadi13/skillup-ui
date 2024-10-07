@@ -8,9 +8,17 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "@/hooks/use-toast";
 
 
 function ContactUs() {
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    toast({
+      title: "Contact Submission",
+      description: "Thank your for your message, we will contact with you soon",
+    });
+  }
   return (
     <section className="flex justify-center items-center py-12 bg-gray-100">
       <Card className="max-w-3xl p-8 bg-white shadow-lg rounded-lg">
@@ -22,7 +30,7 @@ function ContactUs() {
         </CardHeader>
 
         <CardContent className="mt-6 space-y-4">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleContactSubmit}>
             <div className="flex flex-col">
               <label className="text-sm font-semibold mb-2" htmlFor="name">Your Name</label>
               <Input id="name" type="text" placeholder="Enter your name" required className="p-3 border rounded-md" />

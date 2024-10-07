@@ -80,12 +80,6 @@ const SignUp = () => {
             Create an account
           </Button>
           </form>
-          <Button variant="outline" className="w-full">
-            Sign up with Google
-          </Button>
-          <Button variant="outline" className="w-full">
-            Sign up with GitHub
-          </Button>
         </div>
         <div className="mt-4 text-center text-sm">
           Already have an account?{" "}

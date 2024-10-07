@@ -37,7 +37,7 @@ const Sample = () => {
 }
 
 export const imageLoader = async () => {
-    const response = await fetch('http://localhost:5000/courses/images');
+    const response = await fetch('http://localhost:5000/images');
 
     if (!response.ok) {
         throw Error("Could not fetch course images.")
