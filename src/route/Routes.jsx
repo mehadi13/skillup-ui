@@ -5,9 +5,10 @@ import PrivateRoute from "./PrivateRoute";
 
 import RootLayout from "../layouts/RootLayout";
 import Home from "@/pages/home/Home";
-import CourseDetails from "@/pages/secured/CourseDetails";
-import Courses from "@/pages/secured/products/Courses";
+import CourseDetails, { courseDetailsLoader } from "@/pages/secured/CourseDetails";
+import Courses, { courseLoader } from "@/pages/secured/products/Courses";
 import Profile from "@/pages/secured/Profile";
+import { imageLoader } from "@/pages/home/Sample";
 
 
 const routes = createBrowserRouter([
@@ -18,6 +19,7 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: imageLoader
       },
       {
         path: "/signin",
@@ -34,6 +36,7 @@ const routes = createBrowserRouter([
             <Courses />
           </PrivateRoute>
         ),
+        loader: courseLoader
       },
       {
         path: "/products/:id",
@@ -42,6 +45,7 @@ const routes = createBrowserRouter([
             <CourseDetails />
           </PrivateRoute>
         ),
+        loader: courseDetailsLoader
       },
       {
         path: "/profile",
