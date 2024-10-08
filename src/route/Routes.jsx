@@ -7,7 +7,6 @@ import RootLayout from "../layouts/RootLayout";
 import Home from "@/pages/home/Home";
 import CourseDetails, { courseDetailsLoader } from "@/pages/secured/CourseDetails";
 import Courses, { courseLoader } from "@/pages/secured/products/Courses";
-import Profile from "@/pages/secured/Profile";
 import { imageLoader } from "@/pages/home/Sample";
 import NotFound from "@/pages/NotFound";
 import UnderDev from "@/pages/UnderDev";
@@ -45,7 +44,7 @@ const routes = createBrowserRouter([
         path: "/profile",
         element: (
           <PrivateRoute>
-            <Profile />
+            <UnderDev />
           </PrivateRoute>
         ),
       },

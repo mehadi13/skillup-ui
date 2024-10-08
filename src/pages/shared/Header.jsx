@@ -8,7 +8,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
 
 import { Link, useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -41,8 +40,8 @@ function Header() {
   };
 
   return (
-      <header className=" border-b bg-background  sticky top-0">
-        <div className="mx-auto max-w-screen-xl flex h-16 items-center gap-4 px-4 sm:px-6 lg:px-8">
+    <header className=" border-b bg-background  sticky top-0">
+      <div className="mx-auto max-w-screen-xl flex h-16 items-center gap-4 px-4 sm:px-6 lg:px-8">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <Link href="#" className="md:flex md:items-center md:gap-1">
             <img className="w-20" src={logo} alt="logo" />
@@ -108,8 +107,8 @@ function Header() {
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem><Link to="/dev" onClick={handleDropdownClick}>Profile</Link></DropdownMenuItem>
-                <DropdownMenuItem><Link to="/dev" onClick={handleDropdownClick}>Cart</Link></DropdownMenuItem>
+                <DropdownMenuItem><Link to="/profile" onClick={handleDropdownClick}>Profile</Link></DropdownMenuItem>
+                <DropdownMenuItem><Link to="/profile" onClick={handleDropdownClick}>Cart</Link></DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleSignOut}>Logout</DropdownMenuItem>
               </DropdownMenuContent>
@@ -121,8 +120,8 @@ function Header() {
             </div>
           )}
         </div>
-        </div>
-      </header>
+      </div>
+    </header>
   );
 }
 

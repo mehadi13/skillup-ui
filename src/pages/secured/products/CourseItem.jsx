@@ -1,16 +1,5 @@
-import { Avatar } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from "@/components/ui/card"
-import { Image } from "@radix-ui/react-avatar"
-import { LucideChartColumn, LucideStar, LucideUser, LucideUsers, StampIcon, StarIcon } from "lucide-react"
+import { LucideChartColumn, LucideStar, LucideUsers } from "lucide-react"
 import { Link } from "react-router-dom"
 const CourseItem = ({course}) => {
 

@@ -3,9 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { API_URL } from "@/Constant";
 import { toast } from "@/hooks/use-toast";
-import { AuthContext } from "@/provider/AuthProvider";
-import { Icon, LucideAward, LucideBadgeDollarSign, LucideChartColumn, LucideClock, LucideNotebookPen, LucideStar, LucideStars, LucideStickyNote, LucideUsers } from "lucide-react";
-import { useContext } from "react";
+import { LucideAward, LucideBadgeDollarSign, LucideChartColumn, LucideClock, LucideNotebookPen, LucideStar, LucideStars, LucideStickyNote, LucideUsers } from "lucide-react";
 import { useLoaderData } from "react-router-dom";
 
 
@@ -19,13 +17,13 @@ const CourseDetails = () => {
         <div className="grid grid-cols-1 py-10 gap-6">
             <span className="text-lg font-medium text-gray-900 block text-center">{title}</span> {/* Course title */}
             <div className="flex justify-center">
-            <img
-                src={img_url} // img_url from the JSON data
-                alt={title} // title of the course used as alt text
-                className="sm:h-96 max-h-screen"
-            />
+                <img
+                    src={img_url} // img_url from the JSON data
+                    alt={title} // title of the course used as alt text
+                    className="sm:h-96 max-h-screen"
+                />
             </div>
-            <Separator/>
+            <Separator />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-9">
                 <div className="space-y-4">
                     <div>
@@ -102,13 +100,13 @@ const CourseDetails = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 mt-3 gap-8">
                 <Button variant="outline"
                     className="w-full p-4 text-sm font-medium transition hover:scale-105 shadow-lg"
-                    onClick={() => toast({title: 'Prewiew', description: "We are working on this."})}
+                    onClick={() => toast({ title: 'Prewiew', description: "We are working on this." })}
                 >
                     Preview
                 </Button>
                 <Button
                     className="w-full p-4 text-sm font-medium transition hover:scale-105 shadow-lg"
-                onClick={() => toast({title: 'Add to Cart', description: `${title} has been successfully added to the Cart.`})}
+                    onClick={() => toast({ title: 'Add to Cart', description: `${title} has been successfully added to the Cart.` })}
                 >
                     Add to Cart
                 </Button>

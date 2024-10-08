@@ -3,15 +3,15 @@ import { Facebook, InstagramIcon, LinkedinIcon, TwitterIcon } from "lucide-react
 import logo from "../../assets/logo.png"
 
 const Footer = () => {
-    return (
-      <footer className="bg-slate-300">
-        <Separator className="my-6 bg-slate-400" />
-        <div className="flex justify-center">
-          <img src={logo} alt="logo"/>  
-        </div>
-        <div className="bg-gray-800 text-gray-200 py-8 sm:py-10">
+  return (
+    <footer className="bg-slate-300">
+      <Separator className="my-6 bg-slate-400" />
+      <div className="flex justify-center">
+        <img src={logo} alt="logo" />
+      </div>
+      <div className="bg-gray-800 text-gray-200 py-8 sm:py-10">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-          
+
           {/* Address Section */}
           <div className="place-self-center">
             <h4 className="text-xl font-semibold mb-4 text-center">Our Address</h4>
@@ -19,14 +19,14 @@ const Footer = () => {
             <span className="md:block">SkillUp City, 56789</span>
             <p className="text-center">Bangladesh</p>
           </div>
-  
+
           {/* Contact Details Section */}
           <div className="place-self-center">
             <h4 className="text-xl font-semibold mb-4 text-center">Contact Us</h4>
             <p>Email: support@skillup.com</p>
             <p>Phone: +1 (234) 567-890</p>
           </div>
-  
+
           {/* Social Links Section */}
           <div className="place-self-center">
             <h4 className="text-xl font-semibold mb-4 text-center">Follow Us</h4>
@@ -46,16 +46,16 @@ const Footer = () => {
             </div>
           </div>
         </div>
-  
+
         {/* Separator */}
         <Separator className="my-6" />
-  
+
         {/* Footer Bottom */}
         <div className="text-center text-sm text-gray-400">
           <p>&copy; {new Date().getFullYear()} SkillUp. All rights reserved.</p>
         </div>
-        </div>
-      </footer>
+      </div>
+    </footer>
   );
 }
 
