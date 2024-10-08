@@ -9,6 +9,8 @@ import CourseDetails, { courseDetailsLoader } from "@/pages/secured/CourseDetail
 import Courses, { courseLoader } from "@/pages/secured/products/Courses";
 import Profile from "@/pages/secured/Profile";
 import { imageLoader } from "@/pages/home/Sample";
+import NotFound from "@/pages/NotFound";
+import UnderDev from "@/pages/UnderDev";
 
 
 const routes = createBrowserRouter([
@@ -20,14 +22,6 @@ const routes = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: imageLoader
-      },
-      {
-        path: "/signin",
-        element: <SignIn />,
-      },
-      {
-        path: "/signup",
-        element: <SignUp />,
       },
       {
         path: "/products",
@@ -55,8 +49,24 @@ const routes = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "/dev",
+        element: <UnderDev/>
+      },
+      {
+        path: "*",
+        element: <NotFound/>
+      }
     ],
   },
+  {
+    path: "/signin",
+    element: <SignIn />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
+  }
 ]);
 
 export default routes;

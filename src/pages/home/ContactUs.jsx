@@ -46,7 +46,7 @@ function ContactUs() {
               <Textarea id="message" placeholder="Write your message here..." required className="p-3 border rounded-md" rows={5} />
             </div>
 
-            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold p-3 rounded-md">
+            <Button type="submit" className="w-full text-white font-semibold p-3 rounded-md">
               Send Message
             </Button>
           </form>

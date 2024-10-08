@@ -10,7 +10,7 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 import { Image } from "@radix-ui/react-avatar"
-import { StampIcon, StarIcon } from "lucide-react"
+import { LucideChartColumn, LucideStar, LucideUser, LucideUsers, StampIcon, StarIcon } from "lucide-react"
 import { Link } from "react-router-dom"
 const CourseItem = ({course}) => {
 
@@ -40,7 +40,7 @@ const CourseItem = ({course}) => {
 
     <div className="mt-6 flex items-center gap-8 text-xs">
       <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-        <StarIcon className="text-indigo-700 w-6"/>
+        <LucideStar/>
         <div className="mt-1.5 sm:mt-0">
           <p className="text-gray-500">Raitings</p>
 
@@ -49,20 +49,7 @@ const CourseItem = ({course}) => {
       </div>
 
       <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-        <svg
-          className="size-4 text-indigo-700"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-          />
-        </svg>
+        <LucideChartColumn/>
 
         <div className="mt-1.5 sm:mt-0">
           <p className="text-gray-500">Level</p>
@@ -72,21 +59,7 @@ const CourseItem = ({course}) => {
       </div>
 
       <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-        <svg
-          className="size-4 text-indigo-700"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-          />
-        </svg>
-
+        <LucideUsers/>
         <div className="mt-1.5 sm:mt-0">
           <p className="text-gray-500">Enrolled By</p>
 

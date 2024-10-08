@@ -108,7 +108,8 @@ function Header() {
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem><Link to="/profile" onClick={handleDropdownClick}>Profile</Link></DropdownMenuItem>
+                <DropdownMenuItem><Link to="/dev" onClick={handleDropdownClick}>Profile</Link></DropdownMenuItem>
+                <DropdownMenuItem><Link to="/dev" onClick={handleDropdownClick}>Cart</Link></DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleSignOut}>Logout</DropdownMenuItem>
               </DropdownMenuContent>
